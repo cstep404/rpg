@@ -69,7 +69,8 @@ while (true) {
 
 characterStats = {
     "name": characterName,
-    "class": characterClass
+    "class": characterClass,
+    "level": 1
 }
 
 // assign basic stats based on class
@@ -78,6 +79,7 @@ if (characterStats["class"] === "Witch Hunter") {
     characterStats.strength = 10;
     characterStats.wisdom = 10;
     characterStats.agility = 10;
+    characterStats.intelligence = 10;
 }
 
 console.log(`It has been written: you are ${characterStats["name"]} the ${characterStats["class"]}.`);
