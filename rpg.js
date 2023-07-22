@@ -52,16 +52,16 @@ while (true) {
         break;
     } else if (classChoice === "2") {
         characterClass = "Barbarian";
-        break;
+        console.log(`Player chose ${characterClass}, but this class doesn't exit yet.`);
     } else if (classChoice === "3") {
         characterClass = "Warlock";
-        break;
+        console.log(`Player chose ${characterClass}, but this class doesn't exit yet.`);
     } else if (classChoice === "4") {
         characterClass = "Paladin";
-        break;
+        console.log(`Player chose ${characterClass}, but this class doesn't exit yet.`);
     } else if (classChoice === "5") {
         characterClass = "Shaman";
-        break;
+        console.log(`Player chose ${characterClass}, but this class doesn't exit yet.`);
     } else {
         console.log("Please make a valid selection.");
     }
@@ -87,3 +87,20 @@ console.log("Prepare yourself...")
 
 console.log("Current character stats: ");
 console.log(characterStats);
+
+// character stats function
+const showCharacterStats = () => {
+    console.log(characterStats);
+}
+
+console.log("When an input prompt is displayed, you can view your character stats by typing: 'stats'");
+
+while (true) {
+    let playerDecision = prompt("Try it now: ");
+    if (playerDecision.toLowerCase() === "stats") {
+        showCharacterStats();
+        break;
+    } else {
+        console.log("Try entering 'stats' to view your characters stats.");
+    }
+}
