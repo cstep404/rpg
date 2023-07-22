@@ -25,10 +25,30 @@ console.log("user chose start game, game is continuing");
 
 // starting game section
 
-// ask the user their characters name
-let characterName = prompt("What is your character's name?: ")
+// ask the user their characters name (prevent numbers from being used)
+const allowedCharacterName = (name) => {
+    const letters = /^[A-Za-z]+$/;
+    return letters.test(name);
+}
 
-console.log(`Your characters name is: ${characterName}`);
+let characterName;
+
+while (true) {
+    characterName = prompt("What is your character's name?: ")
+
+    const verifyCharacterName = allowedCharacterName(characterName);
+
+    if (verifyCharacterName) {
+        console.log("Name is valid");
+        break;
+    } else {
+        console.log("Name is not valid, please enter a valid name - letters only");
+    }
+}
+
+// transform the first letter of the name to upper case
+
+characterName = characterName.charAt(0).toUpperCase() + characterName.slice(1);
 
 // choose class - currently only 1 class: witch hunter. others will be added later
 const classMenu = () => {
@@ -67,7 +87,7 @@ while (true) {
     }
 }
 
-characterStats = {
+let characterStats = {
     "name": characterName,
     "class": characterClass,
     "level": 1
@@ -93,7 +113,7 @@ const showCharacterStats = () => {
     console.log(characterStats);
 }
 
-console.log("When an input prompt is displayed, you can view your character stats by typing: 'stats'");
+console.log("Anytime a prompt is displayed, type 'stats' to view your characters 'stats'");
 
 while (true) {
     let playerDecision = prompt("Try it now: ");
